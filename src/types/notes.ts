@@ -18,8 +18,6 @@ export type AddNoteProps = {
 }
 
 export type DeleteButtonProps = {
-    color: string;
-    size: number;
     onClick: () => void
 }
 

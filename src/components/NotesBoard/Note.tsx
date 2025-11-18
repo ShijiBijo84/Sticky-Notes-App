@@ -1,7 +1,7 @@
 
 import { Palette } from "lucide-react"
 import { NoteItemProps } from "../../types/notes"
-import DeleteButton from "../ui/DeleteButton"
+import DeleteButton from "./DeleteButton"
 
 const Note = ({ note, updateNote, startDrag, deleteNote }: NoteItemProps) => {
     return (
@@ -33,7 +33,7 @@ const Note = ({ note, updateNote, startDrag, deleteNote }: NoteItemProps) => {
                         onChange={(e) => updateNote(note.id, "color", e.target.value)}
                     />
                 </label>
-                <DeleteButton color="red" size={15} onClick={() => deleteNote(note.id)} />
+                <DeleteButton onClick={() => deleteNote(note.id)} />
 
             </div>
         </div>

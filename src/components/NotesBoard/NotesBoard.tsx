@@ -1,10 +1,10 @@
-import AddNoteButton from "./AddNoteButton"
 import Note from "./Note"
 import { NoteProps } from "../../types/notes"
 import { useLocalStorage } from "../../hooks/useLocalStorage"
 import { useNotes } from "../../hooks/useNotes"
 import { useDrag } from "../../hooks/useDrag"
 import { INITIAL_NOTES } from "../../constants/constants"
+import ToolBar from "./ToolBar"
 
 
 const NotesBoard = () => {
@@ -14,10 +14,7 @@ const NotesBoard = () => {
 
     return (
         <div className="notes-board">
-            <div className="left-toolbar">
-                <AddNoteButton addNote={addNote} />
-            </div>
-
+            <ToolBar addNote={addNote} />
             {notes.map((note) => (
                 <Note key={note.id} note={note}
                     updateNote={updateNote}

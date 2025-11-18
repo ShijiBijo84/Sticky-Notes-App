@@ -17,24 +17,20 @@
     .left-toolbar {
         width: 70px;
         height: 100%;
-        background-color: #eaeaea;
+        background-color: vars.$toolbar-bg;
         display: flex;
         flex-direction: column;
-        padding: 10px;
+        padding-left: 20px;
 
-        .add-note-button {
+        .add-note-button :where(.ant-btn) {
+            padding: 10px;
             position: absolute;
             top: 30px;
-            left: 10px;
-            border-radius: 8px;
-            background-color: cyan;
-            padding: 10px 20px;
             cursor: pointer;
-            margin-bottom: 10px;
+            background-color: vars.$ant-btn-bg !important;
+            color: vars.$ant-btn-color !important;
         }
     }
-
-
 
     .sticky-note {
         position: absolute;
