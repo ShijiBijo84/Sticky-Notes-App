@@ -29,6 +29,7 @@ const NotesBoard = () => {
                 addNote={addNote}
                 deleteNote={deleteNote}
                 selectedId={selectedNoteId}
+                updateNote={updateNote}
             />
 
             {notes.map((note) => (

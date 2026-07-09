@@ -16,6 +16,7 @@ export type NotePositionProps = {
 export type ToolBarProps = {
     addNote: () => void;
     deleteNote: (id: number) => void;
+    updateNote: (id: number, field: 'title' | 'content' | 'color', value: string) => void;
     selectedId: number | null;
 }
 

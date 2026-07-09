@@ -1,5 +1,4 @@
 
-import { Palette } from "lucide-react";
 import { NoteItemProps } from "../../types/notes";
 
 const Note = ({ note, updateNote, startDrag, isSelected }: NoteItemProps) => {
@@ -32,21 +31,7 @@ const Note = ({ note, updateNote, startDrag, isSelected }: NoteItemProps) => {
                 }
             />
 
-            <div className="absolute right-0 flex  flex-col pt-12.5">
-                <label
-                    className="cursor-pointer"
-                    onMouseDown={(e) => e.stopPropagation()}
-                >
-                    <Palette size={15} />
-                    <input
-                        type="color"
-                        className="hidden"
-                        onChange={(e) =>
-                            updateNote(note.id, "color", e.target.value)
-                        }
-                    />
-                </label>
-            </div>
+
         </div>
     );
 };

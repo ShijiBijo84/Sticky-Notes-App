@@ -1,19 +1,26 @@
-import { ToolBarProps } from "../../types/notes"
-import AddNoteButton from "./AddNoteButton"
-import DeleteButton from "./DeleteButton"
 
-const ToolBar = ({ addNote, deleteNote, selectedId }: ToolBarProps) => {
+import { ToolBarProps } from "../../types/notes";
+import AddNoteButton from "./AddNoteButton";
+import DeleteButton from "./DeleteButton";
+import ColorPalette from "./ColorPalette";
+
+const ToolBar = ({
+    addNote,
+    deleteNote,
+    updateNote,
+    selectedId
+}: ToolBarProps) => {
     return (
-        <div className="flex h-full w-17.5 flex-col gap-2 bg-gray-800 pl-5">
-            <div className="mt-8">
-                <AddNoteButton addNote={addNote} />
-            </div>
+        <div className="flex h-full w-17.5 flex-col items-center gap-5 bg-gray-800 pt-8">
 
-            <div>
-                <DeleteButton
-                    onClick={() => selectedId !== null && deleteNote(selectedId)}
-                />
-            </div>
+            <AddNoteButton addNote={addNote} />
+            <ColorPalette updateNote={updateNote} selectedId={selectedId} />
+
+            <DeleteButton
+                onClick={() =>
+                    selectedId !== null && deleteNote(selectedId)
+                }
+            />
         </div>
     );
 };
