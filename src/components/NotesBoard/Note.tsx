@@ -2,10 +2,11 @@
 import { Palette } from "lucide-react";
 import { NoteItemProps } from "../../types/notes";
 
-const Note = ({ note, updateNote, startDrag }: NoteItemProps) => {
+const Note = ({ note, updateNote, startDrag, isSelected }: NoteItemProps) => {
     return (
         <div
-            className="absolute flex min-h-45 min-w-62.5 cursor-grab select-none flex-col p-2.5"
+            className={`absolute flex min-h-45 min-w-62.5 cursor-grab select-none flex-col p-2.5
+                ${isSelected ? "ring-4 ring-blue-500" : ""}`}
             style={{
                 top: note.y,
                 left: note.x,

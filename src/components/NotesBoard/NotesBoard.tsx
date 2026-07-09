@@ -37,6 +37,7 @@ const NotesBoard = () => {
                     note={note}
                     updateNote={updateNote}
                     startDrag={startDrag}
+                    isSelected={note.id === selectedNoteId}
                 />
             ))}
         </div>
