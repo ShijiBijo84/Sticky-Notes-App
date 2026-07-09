@@ -5,7 +5,7 @@ import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { useNotes } from "../../hooks/useNotes";
 import { useDrag } from "../../hooks/useDrag";
 import { INITIAL_NOTES } from "../../constants/constants";
-import ToolBar from "./ToolBar";
+import ToolBar from "../ToolBar/ToolBar";
 import { useState } from "react";
 
 const NotesBoard = () => {

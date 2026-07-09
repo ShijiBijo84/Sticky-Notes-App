@@ -1,5 +1,5 @@
 import { Tooltip } from "antd";
-import IconButton from "../ui/Button"
+import IconButton from "./IconButton"
 import { PlusOutlined } from '@ant-design/icons';
 
 type AddNoteProps = {
