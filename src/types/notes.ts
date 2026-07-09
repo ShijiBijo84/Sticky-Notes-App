@@ -1,23 +1,44 @@
-export type NoteProps = {
-    id: number;
+export type Note = {
+    id: string;
     title: string;
     content: string;
-    x: number;
-    y: number;
     color: string;
 }
 
-export type NotePositionProps = {
-    id: number;
+export type NotePosition = {
     x: number;
-    y: number
-} | null
+    y: number;
+    zIndex: number;
+};
+
+export type DragState = {
+    id: string;
+    x: number;
+    y: number;
+} | null;
+
+export type NoteProps = Note & NotePosition
+
+export type NoteEditableField = 'title' | 'content' | 'color'
+
+export type AddNoteFn = () => void;
+
+type UpdateNoteFn = (id: string, field: NoteEditableField, value: string) => void;
+
+type DeleteNoteFn = (id: string) => void;
+
+type StartDragFn = (e: React.MouseEvent, id: string) => void;
 
 export type ToolBarProps = {
-    addNote: () => void;
-    deleteNote: (id: number) => void;
-    updateNote: (id: number, field: 'title' | 'content' | 'color', value: string) => void;
-    selectedId: number | null;
+    addNote: AddNoteFn;
+    deleteNote: DeleteNoteFn;
+    updateNote: UpdateNoteFn;
+    selectedId: string | null;
+}
+
+export type ColorPaletteProps = {
+    selectedId: string | null;
+    updateNote: UpdateNoteFn;
 }
 
 export type DeleteButtonProps = {
@@ -26,7 +47,7 @@ export type DeleteButtonProps = {
 
 export type NoteItemProps = {
     note: NoteProps;
-    updateNote: (id: number, field: 'title' | 'content' | 'color', value: string) => void;
-    startDrag: (e: React.MouseEvent, id: number) => void;
+    updateNote: UpdateNoteFn
+    startDrag: StartDragFn;
     isSelected: boolean;
 }

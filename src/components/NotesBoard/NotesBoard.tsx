@@ -14,14 +14,13 @@ const NotesBoard = () => {
         INITIAL_NOTES
     );
 
-    const [selectedNoteId, setSelectedNoteId] = useState<number | null>(null);
+    const [selectedNoteId, setSelectedNoteId] = useState<string | null>(null);
 
-    const { addNote, deleteNote, updateNote, moveNote } = useNotes(
-        notes,
+    const { addNote, deleteNote, updateNote, moveNote, bringToFront } = useNotes(
         setNotes
     );
 
-    const { startDrag } = useDrag(moveNote, setSelectedNoteId);
+    const { startDrag } = useDrag({ moveNote, setSelectedNoteId, bringToFront });
 
     return (
         <div className="relative h-screen w-screen overflow-hidden bg-gray-200">

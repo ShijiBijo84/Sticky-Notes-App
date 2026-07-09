@@ -1,12 +1,9 @@
 import { Tooltip } from "antd";
 import IconButton from "./IconButton"
 import { PlusOutlined } from '@ant-design/icons';
+import { AddNoteFn } from "../../types/notes";
 
-type AddNoteProps = {
-  addNote: () => void;
-}
-
-const AddNoteButton = ({ addNote }: AddNoteProps) => {
+const AddNoteButton = ({ addNote }: { addNote: AddNoteFn }) => {
   return (
     <Tooltip title="Add Note">
       <IconButton

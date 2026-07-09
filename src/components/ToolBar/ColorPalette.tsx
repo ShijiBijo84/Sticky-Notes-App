@@ -1,10 +1,6 @@
 import { Tooltip } from "antd";
 import { Palette } from "lucide-react";
-
-type ColorPaletteProps = {
-    selectedId: number | null;
-    updateNote: (id: number, field: 'title' | 'content' | 'color', value: string) => void;
-}
+import { ColorPaletteProps } from "../../types/notes";
 
 const ColorPalette = ({ selectedId, updateNote }: ColorPaletteProps) => {
     return (
@@ -18,7 +14,7 @@ const ColorPalette = ({ selectedId, updateNote }: ColorPaletteProps) => {
             flex h-10 w-10 items-center justify-center rounded-full
             transition-all duration-200
             ${selectedId !== null
-                        ? "cursor-pointer bg-gray-700 hover:bg-gray-600"
+                        ? "cursor-pointer bg-gray-700 hover:bg-green-600"
                         : "cursor-not-allowed bg-gray-700 opacity-40"
                     }
         `}
