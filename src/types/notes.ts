@@ -13,8 +13,10 @@ export type NotePositionProps = {
     y: number
 } | null
 
-export type AddNoteProps = {
+export type ToolBarProps = {
     addNote: () => void;
+    deleteNote: (id: number) => void;
+    selectedId: number | null;
 }
 
 export type DeleteButtonProps = {
@@ -25,5 +27,4 @@ export type NoteItemProps = {
     note: NoteProps;
     updateNote: (id: number, field: 'title' | 'content' | 'color', value: string) => void;
     startDrag: (e: React.MouseEvent, id: number) => void;
-    deleteNote: (id: number) => void;
 }

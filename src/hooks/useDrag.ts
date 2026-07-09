@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 import { NotePositionProps } from "../types/notes";
 
-export function useDrag(moveNote: (id: number, newX: number, newY: number) => void) {
+export function useDrag(moveNote: (id: number, newX: number, newY: number) => void,
+    setSelectedNoteId: React.Dispatch<React.SetStateAction<number | null>>) {
     const [currentNote, setCurrentNote] = useState<NotePositionProps>(null)
 
     useEffect(() => {
@@ -23,11 +24,12 @@ export function useDrag(moveNote: (id: number, newX: number, newY: number) => vo
         moveNote(currentNote.id, e.clientX - currentNote.x, e.clientY - currentNote.y)
     }, [currentNote, moveNote])
 
-    const startDrag = (e: React.MouseEvent, id: number) => {
+    const startDrag = useCallback((e: React.MouseEvent, id: number) => {
         const note = e.currentTarget
         const rect = note.getBoundingClientRect()
         setCurrentNote({ id, x: e.clientX - rect.x, y: e.clientY - rect.y })
-    }
+        setSelectedNoteId(id)
+    }, [setSelectedNoteId])
 
     return { startDrag }
 }

@@ -7,7 +7,9 @@ const DeleteButton = ({ onClick }: DeleteButtonProps) => {
     return <IconButton
         icon={<DeleteOutlined style={{ fontSize: '15px', color: '#08c' }} />}
         type="text"
+        shape="circle"
         onClick={onClick}
+        size="large"
     />
 
 }
